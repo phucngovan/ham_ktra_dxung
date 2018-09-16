@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="isPalindrome(prompt('Insert a Palindrome: '))">Try me</button>
+<script>
+    function isPalindrome(s) {
+        let flag = 1;
+        //alert(s + " length: " + s.length);
+        if (s.length % 2 === 0){
+            if (s.slice(0,1) != s.slice(--s.length,s.length)){
+                flag = 0;
+            } else {
+                let j = s.length, k = j - 1, l = 1;
+                for (let i = 0; i < s.length/2; i++){
+                    if(s.slice(l,++l) != s.slice(--k,--j)){
+                        //alert("k =" + k + "; j =" + j + "; i=" + i);
+                        flag = 0;
+                        break;
+                    }
+                    //alert("4. i=" + i + "; j=" + j);
+                }
+            }
+        }
+        if (flag === 1) document.write("This is Palindrome");
+        else document.write("This is'nt Palindrome");
+    }
+</script>
+</body>
+</html>
